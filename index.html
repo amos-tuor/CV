@@ -47,15 +47,42 @@
   <script>
     const content = document.getElementById('content');
 
-    fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        renderEntries(data);
-      })
-      .catch(err => {
-        content.innerHTML = '<p style="color:red">Fehler beim Laden der data.json Datei.</p>';
-        console.error(err);
-      });
+    const data = {
+      "ausbildung": [
+        {
+          "titel": "Koch EFZ – Hotel Waldhaus Sils-Maria (2016–2019)",
+          "key": "ausbildung-efz"
+        },
+        {
+          "titel": "Chefkoch FA – Hotel & Gastro formation (seit 2024)",
+          "key": "ausbildung-chefkoch"
+        },
+        {
+          "titel": "Berufsbildnerkurs – ibW Chur (April–Mai 2024)",
+          "key": "ausbildung-berufsbildner"
+        }
+      ],
+      "beruf": [
+        {
+          "titel": "Chef de Partie – 7132 Hotel, Vals (seit 06.2023)",
+          "key": "job-7132"
+        },
+        {
+          "titel": "Chef de Partie – Casa Fausta Capaul, Brigels (06.2021–04.2023)",
+          "key": "job-brigels"
+        },
+        {
+          "titel": "Truppenkoch – Schweizer Armee (06.2020–04.2021)",
+          "key": "job-armee"
+        },
+        {
+          "titel": "Demichef de Partie – Hotel Waldhaus Sils-Maria (12.2019–04.2020)",
+          "key": "job-waldhaus"
+        }
+      ]
+    };
+
+    renderEntries(data);
 
     function renderEntries(data) {
       content.innerHTML = '';
